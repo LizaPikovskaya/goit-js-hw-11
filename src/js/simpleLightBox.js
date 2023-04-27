@@ -1,4 +1,3 @@
-
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -14,10 +13,4 @@ export function refreshImageModal() {
   const galleryItems = document.querySelectorAll('.gallery a');
   const lightbox = new SimpleLightbox(galleryItems);
   lightbox.refresh();
-}
-export function closeImageModal() {
-  const lightbox = document.querySelector('.sl-wrapper');
-  const backdrop = document.querySelector('.sl-overlay');
-  lightbox.classList.remove('sl-open');
-  backdrop.classList.remove('sl-show');
 }

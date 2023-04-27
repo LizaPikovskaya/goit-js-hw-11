@@ -4,7 +4,6 @@ import { getImages } from './js/fetchImages';
 import {
   openImageModal,
   refreshImageModal,
-  closeModal,
 } from './js/simpleLightBox';
 import scrollBy from './js/smoothScroll';
 
@@ -12,8 +11,6 @@ const form = document.querySelector('.search-form');
 const galleryEl = document.querySelector('.gallery');
 const buttonOnLoad = document.querySelector('.load-more');
 const lastMessage = document.querySelector('.last-message');
-const closeButton = document.querySelector('.close-button');
-
 
 let currentPage = 1;
 let queryParam = null;
@@ -22,9 +19,6 @@ form.addEventListener('submit', onSearchForm);
 buttonOnLoad.addEventListener('click', onLoadMore);
 galleryEl.addEventListener('click', evt => {
   evt.preventDefault();
-});
-closeButton.addEventListener('click', () => {
-  closeModal();
 });
 
 function onLoadMore() {
@@ -53,7 +47,7 @@ async function renderImagesOnLoadMore() {
       lastMessage.textContent = `Hooray! We found ${response.data.totalHits} images.`;
     }
     galleryEl.insertAdjacentHTML('beforeend', createMarkup(dataArray));
-        scrollBy();
+    scrollBy();
 
     const newGalleryItems = galleryEl.querySelectorAll('.gallery a');
     newGalleryItems.forEach(item => {
@@ -67,7 +61,6 @@ async function renderImagesOnLoadMore() {
     console.log(error);
   }
 }
-
 
 async function renderImagesBySubmit() {
   try {
@@ -83,8 +76,7 @@ async function renderImagesBySubmit() {
       lastMessage.textContent = `Hooray! We found ${response.data.totalHits} images.`;
     }
     openImageModal();
-        scrollBy();
-
+    scrollBy();
   } catch (error) {
     Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
@@ -92,4 +84,3 @@ async function renderImagesBySubmit() {
     galleryEl.innerHTML = '';
   }
 }
-
