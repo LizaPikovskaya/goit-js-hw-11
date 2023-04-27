@@ -1,7 +1,6 @@
+
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
-
 
 export function openImageModal() {
   const galleryItems = document.querySelectorAll('.gallery a');
@@ -11,30 +10,14 @@ export function openImageModal() {
     defaultOptions.captionDelay = 250;
   });
 }
-
-
-
-// export function openImageModal() {
-//   const newGalleryItems = refs.galleryEl.querySelectorAll('.gallery a');
-//       newGalleryItems.forEach(item => {
-//         item.addEventListener('click', e => {
-//           e.preventDefault();
-//           lightbox.open(item.href)
-//         }
-// )})}
-
-
-
 export function refreshImageModal() {
-    const galleryItems = document.querySelectorAll('.gallery a');
-    const lightbox = new SimpleLightbox(galleryItems);
-    lightbox.refresh();
+  const galleryItems = document.querySelectorAll('.gallery a');
+  const lightbox = new SimpleLightbox(galleryItems);
+  lightbox.refresh();
 }
-
 export function closeImageModal() {
-  const wrapper = document.querySelector('.sl-wrapper');
+  const lightbox = document.querySelector('.sl-wrapper');
   const backdrop = document.querySelector('.sl-overlay');
-  wrapper.classList.remove('sl-open');
+  lightbox.classList.remove('sl-open');
   backdrop.classList.remove('sl-show');
 }
-
