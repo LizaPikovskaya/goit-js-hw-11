@@ -2,11 +2,17 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 
-let gallery = new SimpleLightbox('.gallery a');
+export function openImageModal() {
+  const galleryItems = document.querySelectorAll('.gallery a');
+  const lightbox = new SimpleLightbox(galleryItems);
+  lightbox.on('show.simplelightbox', function () {
+    const { defaultOptions } = lightbox;
+    defaultOptions.captionDelay = 250;
+  });
+}
 
-gallery.on('show.simplelightbox', function () {
-  // do something…
-});
-
-
-
+export function refreshImageModal() {
+    const galleryItems = document.querySelectorAll('.gallery a');
+    const lightbox = new SimpleLightbox(galleryItems);
+    lightbox.refresh();
+}
