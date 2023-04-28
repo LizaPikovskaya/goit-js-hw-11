@@ -1,3 +1,5 @@
+
+
 .form-section {
   padding: 40px;
   background-color: rgb(167, 101, 112);
@@ -26,15 +28,12 @@ button {
 
 .gallery {
   max-width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
-  display: flex;
+  display: inline-flex;
+  justify-content: center;
   flex-wrap: wrap;
-  // justify-content: center;
-  // align-items: center;
   gap: 50px;
   margin: 0 auto;
-    margin-bottom: 50px;
+ margin-bottom: 50px;
 
 }
 .gallery-section {
@@ -43,12 +42,14 @@ button {
 .photo-card {
   width: 400px;
   height: 400px;
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .info {
   display: flex;
   padding: 10px;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 img {
