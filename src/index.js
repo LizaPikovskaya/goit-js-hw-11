@@ -1,10 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkup } from './js/createMarkup';
 import { getImages } from './js/fetchImages';
-import {
-  openImageModal,
-  refreshImageModal,
-} from './js/simpleLightBox';
+import { openImageModal, refreshImageModal } from './js/simpleLightBox';
 import scrollBy from './js/smoothScroll';
 
 const form = document.querySelector('.search-form');
@@ -48,8 +45,8 @@ async function renderImagesOnLoadMore() {
     }
     galleryEl.insertAdjacentHTML('beforeend', createMarkup(dataArray));
     scrollBy();
-
     const newGalleryItems = galleryEl.querySelectorAll('.gallery a');
+    const lightbox = new SimpleLightbox(newGalleryItems);
     newGalleryItems.forEach(item => {
       item.addEventListener('click', e => {
         e.preventDefault();

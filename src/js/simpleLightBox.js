@@ -14,3 +14,6 @@ export function refreshImageModal() {
   const lightbox = new SimpleLightbox(galleryItems);
   lightbox.refresh();
 }
+
+
+
